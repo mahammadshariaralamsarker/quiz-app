@@ -1,3 +1,5 @@
+ 
+import { useAppSelector } from "@/app/Redux/hooks";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -9,6 +11,8 @@ import {
 } from "@/components/ui/card";
 
 export default function question() {
+  const data  = useAppSelector((state)=>state.quiz)
+  console.log(data);
   return (
     <div>
       <Card className="w-[350px]">
