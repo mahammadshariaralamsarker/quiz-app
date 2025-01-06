@@ -1,5 +1,5 @@
  
-import { useAppSelector } from "@/app/Redux/hooks";
+import { UseAppSelector } from "@/app/Redux/hooks";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -10,8 +10,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-export default function question() {
-  const data  = useAppSelector((state)=>state.quiz)
+export default function Question() {
+  const data  = UseAppSelector((state)=>state.quiz)
   console.log(data);
   return (
     <div>
