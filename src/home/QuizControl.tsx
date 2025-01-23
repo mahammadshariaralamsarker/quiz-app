@@ -1,19 +1,26 @@
-import { nextQuestion, previousQuestion } from "@/app/feature/quiz/quizSlice";
+import {
+  completeQuiz,
+  nextQuestion,
+  previousQuestion,
+} from "@/app/feature/quiz/quizSlice";
 import { useAppDispatch, UseAppSelector } from "@/app/Redux/hooks";
 import { Button } from "@/components/ui/button";
 import React from "react";
 
 export default function QuizControl() {
-  const { currentQuestionIndex, question,userAnswers } = UseAppSelector(
+  const { currentQuestionIndex, question, userAnswers } = UseAppSelector(
     (state) => state.quiz
   );
   const dispatch = useAppDispatch();
-  const isAnswerSelected = userAnswers[currentQuestionIndex] !==null
+  const isAnswerSelected = userAnswers[currentQuestionIndex] !== null;
   const handleNextQuestion = () => {
     dispatch(nextQuestion());
   };
   const handlePreviousQuestion = () => {
     dispatch(previousQuestion());
+  };
+  const handleQuizComplete = () => {
+    dispatch(completeQuiz());
   };
 
   return (
@@ -25,10 +32,12 @@ export default function QuizControl() {
         Previous
       </Button>
       {currentQuestionIndex < question.length - 1 && (
-        <Button disabled={!isAnswerSelected} onClick={handleNextQuestion}>Next</Button>
+        <Button disabled={!isAnswerSelected} onClick={handleNextQuestion}>
+          Next
+        </Button>
       )}
       {currentQuestionIndex === question.length - 1 && (
-        <Button>Quiz Complete</Button>
+        <Button onClick={handleQuizComplete}>Quiz Complete</Button>
       )}
     </div>
   );
