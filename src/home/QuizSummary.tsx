@@ -8,13 +8,13 @@ export default function QuizSummary() {
   const correctAnswer = question.reduce((count,qna, index)=>{
     return qna.correctAnswer=== userAnswers[index] ? count+1 :count
   },0)
-  const correctAnswerPercentence = parseFloat((correctAnswer/question.length)*100)
+  const correctAnswerPercentence = parseFloat(((correctAnswer/question.length)*100))
   return (
     <div className="flex justify-center">
       <Card className="w-[450px]   ">
         <CardHeader className="text-center">Quiz Summary</CardHeader>
         <CardContent>You Have Got {correctAnswer} out of {question.length}</CardContent>
-        <Progress value={40}/>
+        <Progress value={correctAnswerPercentence}/>
       </Card>
     </div>
   );
