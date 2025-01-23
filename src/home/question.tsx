@@ -4,11 +4,11 @@ import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
-  CardDescription,
-  CardFooter,
+  CardDescription, 
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import QuizControl from "./QuizControl";
 
 export default function Question() {
   const dispatch = useAppDispatch()
@@ -32,11 +32,8 @@ export default function Question() {
           {currentQuestion.options.map((option, index) => (
             <Button onClick={()=>handleAnswersChange(option)} key={index} className="w-full mt-3">{option}</Button>
           ))}
+        <QuizControl/>
         </CardContent>
-        <CardFooter className="flex justify-between">
-          <Button>Previous</Button>
-          <Button>Next</Button>
-        </CardFooter>
       </Card>
     </div>
   );
