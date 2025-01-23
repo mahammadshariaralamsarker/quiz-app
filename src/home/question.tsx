@@ -1,4 +1,5 @@
-import { UseAppSelector } from "@/app/Redux/hooks";
+import { setAnswer } from "@/app/feature/quiz/quizSlice";
+import { useAppDispatch, UseAppSelector } from "@/app/Redux/hooks";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -10,12 +11,14 @@ import {
 } from "@/components/ui/card";
 
 export default function Question() {
+  const dispatch = useAppDispatch()
   const { question, currentQuestionIndex } = UseAppSelector(
     (state) => state.quiz
   );
   const currentQuestion = question[currentQuestionIndex]; 
-  const  handleAnswers = (answer:string) =>{
-
+  const  handleAnswersChange = (answer:string) =>{
+    console.log(answer);
+    dispatch(setAnswer({questionIndex:currentQuestionIndex, answer}))
   }
   return (
     <div className="flex justify-center">
@@ -28,7 +31,7 @@ export default function Question() {
         </CardHeader>
         <CardContent>
           {currentQuestion.options.map((option, index) => (
-            <Button key={index} className="w-full mt-3">{option}</Button>
+            <Button onClick={()=>handleAnswersChange(option)} key={index} className="w-full mt-3">{option}</Button>
           ))}
         </CardContent>
         <CardFooter className="flex justify-between">

@@ -20,7 +20,8 @@ export const quizSlice = createSlice({
   initialState,
   reducers: {
     setAnswer :(state,action) =>{
-
+       const {questionIndex, answer} = action.payload
+       console.log();
     }
   },
 });
