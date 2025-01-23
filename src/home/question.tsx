@@ -11,8 +11,9 @@ import {
 } from "@/components/ui/card";
 
 export default function Question() {
-  const data  = UseAppSelector((state)=>state.quiz)
-  console.log(data);
+  const {question,currentQuestionIndex}  = UseAppSelector((state)=>state.quiz)
+  const currentQuestion = question[currentQuestionIndex]
+  console.log(currentQuestion);
   return (
     <div>
       <Card className="w-[350px]">
