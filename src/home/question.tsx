@@ -16,8 +16,7 @@ export default function Question() {
     (state) => state.quiz
   );
   const currentQuestion = question[currentQuestionIndex]; 
-  const  handleAnswersChange = (answer:string) =>{
-    console.log(answer);
+  const  handleAnswersChange = (answer:string) =>{ 
     dispatch(setAnswer({questionIndex:currentQuestionIndex, answer}))
   }
   return (

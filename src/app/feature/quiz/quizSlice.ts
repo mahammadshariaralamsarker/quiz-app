@@ -21,7 +21,7 @@ export const quizSlice = createSlice({
   reducers: {
     setAnswer :(state,action) =>{
        const {questionIndex, answer} = action.payload
-       console.log();
+       console.log(questionIndex, answer);
     }
   },
 });
