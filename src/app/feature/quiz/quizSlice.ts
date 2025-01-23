@@ -33,10 +33,11 @@ export const quizSlice = createSlice({
         state.currentQuestionIndex -= 1;
       }
     },
-    completeQuiz:(state)=>{
-      state.quizComplete =true
-    }
+    completeQuiz: (state) => {
+      state.quizComplete = true;
+    },
   },
 });
-export const { setAnswer, nextQuestion, previousQuestion,completeQuiz } = quizSlice.actions;
+export const { setAnswer, nextQuestion, previousQuestion, completeQuiz } =
+  quizSlice.actions;
 export default quizSlice.reducer;
