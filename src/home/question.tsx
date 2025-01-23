@@ -4,21 +4,25 @@ import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
-  CardDescription, 
+  CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import QuizControl from "./QuizControl";
+import QuizControl from "./QuizControl"; 
 
 export default function Question() {
-  const dispatch = useAppDispatch()
-  const { question, currentQuestionIndex } = UseAppSelector(
-    (state) => state.quiz
-  );
-  const currentQuestion = question[currentQuestionIndex]; 
-  const  handleAnswersChange = (answer:string) =>{ 
-    dispatch(setAnswer({questionIndex:currentQuestionIndex, answer}))
-  }
+  const dispatch = useAppDispatch();
+  const {
+    question,
+    currentQuestionIndex,
+    userAnswers: userAnswers,
+  } = UseAppSelector((state) => state.quiz);
+  const currentQuestion = question[currentQuestionIndex];
+  const currentAnswer = userAnswers[currentQuestionIndex];
+  console.log(currentAnswer);
+  const handleAnswersChange = (answer: string) => {
+    dispatch(setAnswer({ questionIndex: currentQuestionIndex, answer }));
+  };
   return (
     <div className="flex justify-center">
       <Card className="w-[450px]">
@@ -30,9 +34,16 @@ export default function Question() {
         </CardHeader>
         <CardContent>
           {currentQuestion.options.map((option, index) => (
-            <Button onClick={()=>handleAnswersChange(option)} key={index} className="w-full mt-3">{option}</Button>
+            <Button
+              onClick={() => handleAnswersChange(option)}
+              key={index}
+              className="w-full mt-3"
+              variant={option === currentAnswer ? "default":"outline"}
+            >
+              {option}
+            </Button>
           ))}
-        <QuizControl/>
+          <QuizControl />
         </CardContent>
       </Card>
     </div>
