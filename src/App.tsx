@@ -1,6 +1,5 @@
 
-import './App.css'
-import { Button } from './components/ui/button'
+import './App.css' 
 import Question from './home/question'
 
 function App() { 
