@@ -18,9 +18,9 @@ export default function Question() {
     <div>
       <Card className="w-[350px]">
         <CardHeader>
-          <CardTitle>Create project</CardTitle>
+          <CardTitle>{currentQuestion.question}</CardTitle>
           <CardDescription>
-            Deploy your new project in one-click.
+         Question  {currentQuestionIndex +1}
           </CardDescription>
         </CardHeader>
         <CardContent>
