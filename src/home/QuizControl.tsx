@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import React from "react";
 
 export default function QuizControl() {
-  const { currentQuestionIndex, question, userAnswers } = UseAppSelector(
+  const { currentQuestionIndex, question, userAnswers,quizComplete } = UseAppSelector(
     (state) => state.quiz
   );
   const dispatch = useAppDispatch();
@@ -22,7 +22,7 @@ export default function QuizControl() {
   const handleQuizComplete = () => {
     dispatch(completeQuiz());
   };
-
+const isCompleteQuiz = isAnswerSelected || currentQuestionIndex !==question.length-1;
   return (
     <div className="flex justify-between mt-4  ">
       <Button
@@ -37,7 +37,7 @@ export default function QuizControl() {
         </Button>
       )}
       {currentQuestionIndex === question.length - 1 && (
-        <Button onClick={handleQuizComplete}>Quiz Complete</Button>
+        <Button disabled={!isCompleteQuiz}  onClick={handleQuizComplete}>Quiz Complete</Button>
       )}
     </div>
   );
