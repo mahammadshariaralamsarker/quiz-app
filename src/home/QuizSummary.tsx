@@ -12,7 +12,7 @@ export default function QuizSummary() {
     <div className="flex justify-center">
       <Card className="w-[450px]   ">
         <CardHeader className="text-center">Quiz Summary</CardHeader>
-        <CardContent>You Have Got</CardContent>
+        <CardContent>You Have Got {correctAnswer} out of {question.length}</CardContent>
       </Card>
     </div>
   );
