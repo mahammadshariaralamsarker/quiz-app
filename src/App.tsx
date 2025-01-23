@@ -1,14 +1,12 @@
+import "./App.css";
+import Question from "./home/question";
 
-import './App.css' 
-import Question from './home/question'
-
-function App() { 
-
+function App() {
   return (
     <>
-     <Question/>
+      <Question />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
