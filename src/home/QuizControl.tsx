@@ -4,8 +4,11 @@ import { Button } from "@/components/ui/button";
 import React from "react";
 
 export default function QuizControl() {
-  const { currentQuestionIndex,question } = UseAppSelector((state) => state.quiz);
+  const { currentQuestionIndex, question,userAnswers } = UseAppSelector(
+    (state) => state.quiz
+  );
   const dispatch = useAppDispatch();
+  const isAnswerSelected = userAnswers[currentQuestionIndex] !==null
   const handleNextQuestion = () => {
     dispatch(nextQuestion());
   };
@@ -21,8 +24,12 @@ export default function QuizControl() {
       >
         Previous
       </Button>
-      { currentQuestionIndex<question.length -1 &&
-        (<Button onClick={handleNextQuestion}>Next</Button>)}
+      {currentQuestionIndex < question.length - 1 && (
+        <Button disabled={!isAnswerSelected} onClick={handleNextQuestion}>Next</Button>
+      )}
+      {currentQuestionIndex === question.length - 1 && (
+        <Button>Quiz Complete</Button>
+      )}
     </div>
   );
 }
