@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import React from "react";
 
 export default function QuizControl() {
-  const { currentQuestionIndex, question, userAnswers,quizComplete } = UseAppSelector(
+  const { currentQuestionIndex, question, userAnswers } = UseAppSelector(
     (state) => state.quiz
   );
   const dispatch = useAppDispatch();
