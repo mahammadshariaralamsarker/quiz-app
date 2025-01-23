@@ -13,10 +13,9 @@ export default function Question() {
   const { question, currentQuestionIndex } = UseAppSelector(
     (state) => state.quiz
   );
-  const currentQuestion = question[currentQuestionIndex];
-  console.log(currentQuestion);
+  const currentQuestion = question[currentQuestionIndex]; 
   return (
-    <div className="ml-12">
+    <div className="flex justify-center">
       <Card className="w-[350px]">
         <CardHeader>
           <CardTitle>{currentQuestion.question}</CardTitle>
