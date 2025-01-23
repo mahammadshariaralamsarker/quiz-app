@@ -19,6 +19,7 @@ export default function QuizSummary() {
           You Have Got {correctAnswer} out of {question.length}
         </CardContent>
         <Progress value={correctAnswerPresentence} />
+        <h2>Incorrect Answer = {}</h2>
       </Card>
     </div>
   );
