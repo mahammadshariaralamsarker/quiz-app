@@ -8,7 +8,7 @@ function App() {
   return (
     <div>
       <h1 className="text-center text-6xl m-8">Quiz App</h1>
-      {completeQuiz ? <Question /> : <QuizSummary/>}
+      {!completeQuiz ? <Question /> : <QuizSummary/>}
     </div>
   );
 }
