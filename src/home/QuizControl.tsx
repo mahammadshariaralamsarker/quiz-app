@@ -4,9 +4,7 @@ import { Button } from "@/components/ui/button";
 import React from "react";
 
 export default function QuizControl() {
-  const {currentQuestionIndex} = UseAppSelector(
-    (state)=>state.quiz
-  )
+  const { currentQuestionIndex,question } = UseAppSelector((state) => state.quiz);
   const dispatch = useAppDispatch();
   const handleNextQuestion = () => {
     dispatch(nextQuestion());
@@ -17,8 +15,14 @@ export default function QuizControl() {
 
   return (
     <div className="flex justify-between mt-4  ">
-      <Button disabled={currentQuestionIndex===0} onClick={handlePreviousQuestion}>Previous</Button>
-      <Button onClick={handleNextQuestion}>Next</Button>
+      <Button
+        disabled={currentQuestionIndex === 0}
+        onClick={handlePreviousQuestion}
+      >
+        Previous
+      </Button>
+      { currentQuestionIndex<question.length -1 &&
+        (<Button onClick={handleNextQuestion}>Next</Button>)}
     </div>
   );
 }
