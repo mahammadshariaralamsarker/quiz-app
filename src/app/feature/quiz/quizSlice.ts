@@ -1,6 +1,5 @@
 import { quizData } from "@/home/quizData";
 import { createSlice } from "@reduxjs/toolkit";
-import { stat } from "fs";
 
 interface TQuiz {
   question: typeof quizData;
