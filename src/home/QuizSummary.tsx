@@ -4,7 +4,9 @@ import React from "react";
 
 export default function QuizSummary() {
   const {question,userAnswers} = UseAppSelector((state)=> state.quiz)
-  
+  const correctAnswer = question.reduce((count,qna, index)=>{
+    
+  },0)
   return (
     <div className="flex justify-center">
       <Card className="w-[450px]   ">
