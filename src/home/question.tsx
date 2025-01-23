@@ -14,9 +14,12 @@ export default function Question() {
     (state) => state.quiz
   );
   const currentQuestion = question[currentQuestionIndex]; 
+  const  handleAnswers = (answer:string) =>{
+
+  }
   return (
     <div className="flex justify-center">
-      <Card className="w-[350px]">
+      <Card className="w-[450px]">
         <CardHeader>
           <CardTitle>{currentQuestion.question}</CardTitle>
           <CardDescription>
