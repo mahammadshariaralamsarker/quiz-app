@@ -1,5 +1,6 @@
 import { quizData } from "@/home/quizData";
 import { createSlice } from "@reduxjs/toolkit";
+import { stat } from "fs";
 
 interface TQuiz {
   question: typeof quizData;
@@ -20,8 +21,8 @@ export const quizSlice = createSlice({
   initialState,
   reducers: {
     setAnswer :(state,action) =>{
-       const {questionIndex, answer} = action.payload
-       console.log(questionIndex, answer);
+       const {questionIndex, answer} = action.payload 
+       state.useAnswers[questionIndex] =answer
     }
   },
 });
